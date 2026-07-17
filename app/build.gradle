@@ -69,6 +69,7 @@ base {
 }
 
 dependencies {
+    // implementation project(':voiceping-sdk')
     implementation libs.voiceping.sdk
     implementation libs.androidx.core.ktx
     implementation libs.androidx.appcompat
@@ -77,4 +78,8 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.androidx.espresso.core
     androidTestImplementation libs.androidx.junit
+}
+
+tasks.named("preBuild") {
+    dependsOn(rootProject.tasks.named("startApi"))
 }
